@@ -1,0 +1,75 @@
+﻿@model ApiCall.InputData.ShoppingInput
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+
+<h4>ShoppingInput</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="ProductImage" class="control-label"></label>
+                <input asp-for="ProductImage" class="form-control" />
+                <span asp-validation-for="ProductImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductName" class="control-label"></label>
+                <input asp-for="ProductName" class="form-control" />
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductPriceM" class="control-label"></label>
+                <input asp-for="ProductPriceM" class="form-control" />
+                <span asp-validation-for="ProductPriceM" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductPriceF" class="control-label"></label>
+                <input asp-for="ProductPriceF" class="form-control" />
+                <span asp-validation-for="ProductPriceF" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BrandName" class="control-label"></label>
+                <input asp-for="BrandName" class="form-control" />
+                <span asp-validation-for="BrandName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompanyImage" class="control-label"></label>
+                <input asp-for="CompanyImage" class="form-control" />
+                <span asp-validation-for="CompanyImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Categpories" class="control-label"></label>
+                <input asp-for="Categpories" class="form-control" />
+                <span asp-validation-for="Categpories" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StarRatings" class="control-label"></label>
+                <input asp-for="StarRatings" class="form-control" />
+                <span asp-validation-for="StarRatings" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+</body>
+</html>
