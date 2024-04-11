@@ -8,7 +8,6 @@ namespace ApiCall.InputData
         public int Id { get; set; }
 
         [Required]
-        [DataType(DataType.Url)]
         public string ProductImage { get; set; }
 
         [Required]
@@ -19,7 +18,6 @@ namespace ApiCall.InputData
         public double ProductPriceF { get; set; }
         public string BrandName { get; set; }
 
-        [DataType(DataType.Url)]
         public string CompanyImage { get; set; }
 
         [Required]

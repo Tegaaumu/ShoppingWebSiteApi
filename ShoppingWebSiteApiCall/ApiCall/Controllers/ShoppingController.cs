@@ -25,12 +25,13 @@ namespace ApiCall.Controllers
 
 
         // POST api/<Shopping>
-        [HttpPost]
-        public IActionResult Post([FromBody] ShoppingInput value)
+        [HttpPost("PlaceItems")]
+        //public IActionResult Post([FromBody] ShoppingInput value)
+        public async Task<IActionResult> Post([FromBody] ShoppingInput value)
         {
             if (ModelState.IsValid)
             {
-                _IShoppingRepository.Add(value);
+                await _IShoppingRepository.Add(value);
                 return Ok(value);
             }
             return BadRequest("The form field was not completed");
