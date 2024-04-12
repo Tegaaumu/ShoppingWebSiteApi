@@ -40,6 +40,22 @@ namespace ApiCall.Controllers
             return Ok(await _IShoppingRepository.GetItem(id));
         }
 
+
+        // GET api/<Shopping>/5
+        [HttpGet]
+        [Route("{name}/GetByBrandName", Name = "GetByBrandName")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> GetByBrandName(string name)
+        {
+            var Items = _applicationDBContext!.ShoppingInput.Where(s => s.Categpories == name);
+            if (Items.Any() == false) return NotFound();
+
+            return Ok(Items);
+
+        }
+
         // POST api/<Shopping>
         [HttpPost("PlaceItems")]
         [ProducesResponseType(StatusCodes.Status200OK)]

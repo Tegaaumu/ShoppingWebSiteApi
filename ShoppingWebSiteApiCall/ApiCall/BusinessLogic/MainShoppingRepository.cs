@@ -1,6 +1,7 @@
 ﻿using ApiCall.InputData;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
@@ -33,6 +34,12 @@ namespace ApiCall.BusinessLogic
             }
             return _applicationDBContext.ShoppingInput;
         }
+
+        //public ActionResult GetByBrandNAme(string name)
+        //{
+        //    var Items = _applicationDBContext!.ShoppingInput.All(s => s.BrandName == name);
+        //    if (Items == null) return NotFound();
+        //}
 
         public async Task<ShoppingInput> GetItem(int number)
         {
