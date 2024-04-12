@@ -8,5 +8,7 @@ namespace ApiCall.BusinessLogic
 
         Task<ShoppingInput> Add(ShoppingInput shoppingInput);
 
+        Task<ShoppingInput> GetItem(int number);
+        //Task<ShoppingInput> ModifyProduct(ShoppingInput shoppingInput);
     }
 }

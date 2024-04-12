@@ -1,5 +1,6 @@
 ﻿using ApiCall.InputData;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
@@ -24,7 +25,6 @@ namespace ApiCall.BusinessLogic
         {
             if (_applicationDBContext!.ShoppingInput.Count<ShoppingInput>() == 0 || _applicationDBContext!.ShoppingInput == null)
             {
-
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.BackgroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("This Current database is an empty one please input values to the database");
@@ -33,5 +33,38 @@ namespace ApiCall.BusinessLogic
             }
             return _applicationDBContext.ShoppingInput;
         }
+
+        public async Task<ShoppingInput> GetItem(int number)
+        {
+            number = (number == 0) ? 1 : number;
+            var Value = await _applicationDBContext!.ShoppingInput.FindAsync(number);
+            if (Value == null)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.BackgroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("Value does not exist");
+                Console.ResetColor();
+                return new ShoppingInput();
+            }
+            return Value;
+        }
+
+        //public async Task<ShoppingInput> ModifyProduct(ShoppingInput existingItems, JsonPatchDocument<ShoppingInput> shoppingInput)
+        //{
+        //    var shoppingInputCreated = new ShoppingInput()
+        //    {
+        //        Id = existingItems.Id,
+        //        ProductImage = existingItems.ProductImage,
+        //        StarRatings = existingItems.StarRatings,
+        //        ProductPriceM = existingItems.ProductPriceM,
+        //        ProductPriceF = existingItems.ProductPriceF,
+        //        BrandName = existingItems.BrandName,
+        //        Categpories = existingItems.Categpories,
+        //        CompanyImage = existingItems.CompanyImage,
+        //        ItemsRemaining = existingItems.ItemsRemaining,
+        //    };
+
+        //    shoppingInput.ApplyTo(shoppingInputCreated, ModelState);
+        //}
     }
 }

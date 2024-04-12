@@ -24,6 +24,10 @@ namespace ApiCall.InputData
         public string Categpories { get; set; }
         
         [Required]
-        public int StarRatings { get; set; }
+        public double StarRatings { get; set; }
+
+
+        [Required]
+        public int ItemsRemaining { get; set; }
     }
 }
