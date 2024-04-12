@@ -11,9 +11,6 @@ namespace ApiCall.InputData
         public string ProductImage { get; set; }
 
         [Required]
-        public string ProductName{ get; set; }
-
-        [Required]
         public double ProductPriceM { get; set; }
         public double ProductPriceF { get; set; }
         public string BrandName { get; set; }
@@ -24,6 +21,7 @@ namespace ApiCall.InputData
         public string Categpories { get; set; }
         
         [Required]
+        [Range(0, 5, ErrorMessage = "Please the rating can only be from 1 to 5")]
         public double StarRatings { get; set; }
 
 
